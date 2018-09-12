@@ -4,5 +4,7 @@ public class Main {
 
         Task1.executeTask1();
 
+        Task2.executeTask2();
+
     }
 }

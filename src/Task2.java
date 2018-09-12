@@ -1,15 +1,15 @@
-public class Task1 {
+public class Task2 {
 
-    public static void executeTask1() {
+    public static void executeTask2() {
         int[] testArray = ArrayCreator.createNonDiminishingArray(100, 0, 10);
 
         int searchedNum = 5;
 
-        int searchedIndex = BinarySearch.findFirstPlacementOfValue(testArray, searchedNum);
-        System.out.println("First placement search:");
+        int searchedIndex = BinarySearch.findLastPlacementOfValue(testArray, searchedNum);
+        System.out.println("Last placement search:");
 
         if (testArray[searchedIndex] == searchedNum) {
-            System.out.println("First placement of " + searchedNum + " in the array is at the index of: " + searchedIndex);
+            System.out.println("Last placement of " + searchedNum + " in the array is at the index of: " + searchedIndex);
         } else {
             System.out.println("There is no such number in the array, returning the first two elements...");
         }

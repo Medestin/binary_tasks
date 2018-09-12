@@ -1,50 +1,49 @@
 public class BinarySearch {
 
-    public static int findFirstPlacementOfValueIterative(int[] arrayGiven, int keyValue) {
-
-        int highIndex = arrayGiven.length - 1;
+    public static int findFirstPlacementOfValue(int[] arrayGiven, int keyValue) {
         int lowIndex = 0;
+        int highIndex = arrayGiven.length - 1;
 
-        int middleIndex = (highIndex + lowIndex) / 2;
+        int middle;
+        while(lowIndex < highIndex){
+            middle = (lowIndex + highIndex)/2;
+            if(arrayGiven[middle] >= keyValue){
+                highIndex = middle;
+            } else {
+                lowIndex = middle+1;
+            }
 
-        while (highIndex != lowIndex && highIndex-lowIndex != 1) {
-            if (arrayGiven[middleIndex] < keyValue) {
-                lowIndex = middleIndex + 1;
-                middleIndex = (highIndex + lowIndex) / 2;
-            } else if (arrayGiven[middleIndex] > keyValue) {
-                highIndex = middleIndex - 1;
-                middleIndex = (highIndex + lowIndex) / 2;
-            } else if (arrayGiven[middleIndex] == keyValue) {
-                highIndex = middleIndex;
-                middleIndex = (highIndex + lowIndex) / 2;
+        }
+
+        if(arrayGiven[lowIndex] != keyValue){
+            return -1;
+        }
+
+        else return lowIndex;
+    }
+
+    public static int findLastPlacementOfValue(int[] arrayGiven, int keyValue) {
+
+        int lowIndex = 0;
+        int hightIndex = arrayGiven.length-1;
+
+        int middle;
+        while(lowIndex < hightIndex){
+            middle = (lowIndex + hightIndex)/2;
+            if(arrayGiven[middle] <= keyValue){
+                lowIndex = middle;
+            } else {
+                hightIndex = middle -1;
             }
         }
 
-        if (arrayGiven[middleIndex] != keyValue) {
-            return 0;
+        if(arrayGiven[hightIndex] != keyValue){
+            return -1;
         }
-        return middleIndex;
+        else return hightIndex;
+
     }
 
-    public static int findFirstPlacementOfValueRecursive(int[] arrayGiven, int keyValue, int lowIndex, int highIndex) {
-
-        int middleIndex = (highIndex + lowIndex) / 2;
-
-        if ((highIndex == lowIndex || highIndex - lowIndex == 1) && arrayGiven[middleIndex] == keyValue) {
-            return lowIndex;
-        } else if ((highIndex == lowIndex || highIndex - lowIndex == 1) && arrayGiven[middleIndex] != keyValue) {
-            return 0;
-        } else if (arrayGiven[middleIndex] < keyValue) {
-            return findFirstPlacementOfValueRecursive(arrayGiven, keyValue, middleIndex + 1, highIndex);
-        } else if (arrayGiven[middleIndex] > keyValue) {
-            return findFirstPlacementOfValueRecursive(arrayGiven, keyValue, lowIndex, middleIndex - 1);
-        } else if (arrayGiven[middleIndex] == keyValue) {
-            return findFirstPlacementOfValueRecursive(arrayGiven, keyValue, lowIndex, middleIndex);
-        } else {
-            return 0;
-        }
-
-    }
 
 }
 
