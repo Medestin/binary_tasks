@@ -3,7 +3,7 @@ public class Task2 {
     public static void executeTask2() {
         int[] testArray = ArrayCreator.createNonDiminishingArray(100, 0, 10);
 
-        int searchedNum = 5;
+        int searchedNum = 4;
 
         int searchedIndex = BinarySearch.findLastPlacementOfValue(testArray, searchedNum);
         System.out.println("Last placement search:");

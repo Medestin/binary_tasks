@@ -29,7 +29,7 @@ public class BinarySearch {
 
         int middle;
         while(lowIndex < hightIndex){
-            middle = (lowIndex + hightIndex)/2;
+            middle = ((lowIndex + hightIndex + 1)/2);
             if(arrayGiven[middle] <= keyValue){
                 lowIndex = middle;
             } else {
@@ -43,7 +43,6 @@ public class BinarySearch {
         else return hightIndex;
 
     }
-
 
 }
 
